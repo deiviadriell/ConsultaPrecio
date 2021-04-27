@@ -1,0 +1,7 @@
+{
+  "name": "consultaPrecio",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
