@@ -1,17 +1,43 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header titulo="Registro de Precios"></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <form [formGroup]="miFormulario" (ngSubmit)="saveProducto()" novalidate>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-item lines="full">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombre" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-input formControlName="descripcion" type="text"></ion-input>
+    </ion-item>
+    
+
+    <ion-item lines="full">
+      <ion-label position="floating">Precio</ion-label>
+      <ion-input formControlName="precio" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Cód. Barra</ion-label>
+      <ion-input formControlName="codigoBarra" type="text"></ion-input>
+    </ion-item>    
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="scan()" type="button" color="success" expand="block">Escanear</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="limpiar()" type="button" color="warning" expand="block">Limpiar</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="miFormulario.invalid" type="submit" color="danger" expand="block">Guardar</ion-button>
+      </ion-col>
+    </ion-row>
+    
+  </form>
 </ion-content>

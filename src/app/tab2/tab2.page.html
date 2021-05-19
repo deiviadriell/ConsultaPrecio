@@ -1,17 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col *ngIf="producto.length>0">
+        <ion-card *ngFor="let pr of producto">
+          <img src="/assets/barcode-png.png" />
+          <ion-card-header>      
+            <ion-card-title>Producto: {{pr.nombre}}</ion-card-title>
+            <ion-card-subtitle>Descripción: {{pr.descripcion}}</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <h1>Precio: {{pr.precio}}</h1>            
+          </ion-card-content>
+        </ion-card>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+  
+  <ion-slides>
+    <ion-slide>
+      <ion-button expand="full"
+                  fill="outline"
+                  size="large"
+                  (click)="scan()"
+                  shape="round">
+                  Escanear
+
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
